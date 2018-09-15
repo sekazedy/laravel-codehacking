@@ -11,7 +11,10 @@
 			@endif
 		</div>
 		<div class="col-sm-9">
-			{!! Form::model($user, ['method' => 'PATCH', 'action' => ['AdminUsersController@update', $user->id], 'files' => true]) !!}
+			{!! Form::model($user, ['method' => 'PATCH',
+									'action' => ['AdminUsersController@update', $user->id],
+									'files' => true])
+			!!}
 				<div class='form-group'>
 					{!! Form::label('name', 'Name:') !!}
 					{!! Form::text('name', null, ['class' => 'form-control']) !!}
@@ -37,9 +40,16 @@
 					{!! Form::label('photo_id', 'Image File:') !!}
 					{!! Form::file('photo_id', ['class' => 'form-control']) !!}
 				</div>
-				<div class='form-group'>
+				<div class='form-group '>
 					{!! Form::submit('Update User', ['class' => 'btn btn-primary']) !!}
+					<a href="javascript:;" onclick="getElementById('delete_user').submit();" class="btn btn-danger">Delete</a>
 				</div>
+			{!! Form::close() !!}
+
+			{!! Form::open(['method' => 'DELETE',
+							'action' => ['AdminUsersController@destroy', $user->id],
+							'id' => 'delete_user'])
+			!!}
 			{!! Form::close() !!}
 		</div>
 	</div>
