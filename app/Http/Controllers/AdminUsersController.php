@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 use App\Http\Requests;
 use App\User;
@@ -59,6 +60,9 @@ class AdminUsersController extends Controller
 
         User::create($input);
 
+        Session::flash('message', 'The user has been created!');
+        Session::flash('alert-class', 'alert-success');
+
         return redirect('admin/users');
     }
 
@@ -113,6 +117,9 @@ class AdminUsersController extends Controller
 
         $user->update($input);
 
+        Session::flash('message', 'The user has been updated!');
+        Session::flash('alert-class', 'alert-success');
+
         return redirect('admin/users');
     }
 
@@ -125,6 +132,10 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         User::findOrFail($id)->delete();
+
+        Session::flash('message', 'The user has been deleted!');
+        Session::flash('alert-class', 'alert-success');
+
         return redirect('admin/users');
     }
 }

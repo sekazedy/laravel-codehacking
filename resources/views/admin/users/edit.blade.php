@@ -29,8 +29,8 @@
 				</div>
 				<div class='form-group'>
 					{!! Form::label('is_active', 'Status:') !!}
-					{!! Form::radio('is_active', 0, true) !!} Inactive
-					{!! Form::radio('is_active', 1) !!} Active
+					{!! Form::radio('is_active', 0, true, ['id' => NULL]) !!} Inactive
+					{!! Form::radio('is_active', 1, false, ['id' => NULL]) !!} Active
 				</div>
 				<div class='form-group'>
 					{!! Form::label('password', 'Password:') !!}
