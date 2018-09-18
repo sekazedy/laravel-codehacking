@@ -24,7 +24,13 @@
 						<td>{{ $post->body }}</td>
 						<td>{{ $post->user->name }}</td>
 						<td>{{ $post->category_id }}</td>
-						<td>{{ $post->photo_id }}</td>
+						<td>
+							@if ($post->photo_id)
+								<img src="{{ $post->photo->file_path }}" height="100">
+							@else
+								No photo
+							@endif
+						</td>
 						<td>{{ $post->created_at->diffForHumans() }}</td>
 						<td>{{ $post->updated_at->diffForHumans() }}</td>
 					</tr>

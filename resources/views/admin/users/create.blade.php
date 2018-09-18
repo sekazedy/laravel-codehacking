@@ -27,9 +27,9 @@
 		</div>
 		<div class='form-group'>
 			{!! Form::label('photo_id', 'Image File:') !!}
-			{!! Form::file('photo_id', ['class' => 'form-control']) !!}
+			{!! Form::file('photo_id') !!}
 		</div>
-		<div class='form-group'>
+		<div class='form-group' style="margin-top: 50px;">
 			{!! Form::submit('Create User', ['class' => 'btn btn-primary']) !!}
 		</div>
 	{!! Form::close() !!}
