@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 use App\Http\Requests;
 
@@ -40,6 +41,10 @@ class AdminCategoriesController extends Controller
     public function store(Request $request)
     {
         Category::create($request->all());
+
+        Session::flash('message', 'The category has been created!');
+        Session::flash('alert-class', 'alert-success');
+
         return redirect('admin/categories');
     }
 
@@ -76,6 +81,10 @@ class AdminCategoriesController extends Controller
     public function update(Request $request, $id)
     {
         Category::findOrFail($id)->update($request->all());
+
+        Session::flash('message', 'The category has been updated!');
+        Session::flash('alert-class', 'alert-success');
+
         return redirect('admin/categories');
     }
 
@@ -88,6 +97,10 @@ class AdminCategoriesController extends Controller
     public function destroy($id)
     {
         Category::findOrFail($id)->delete();
+
+        Session::flash('message', 'The category has been deleted!');
+        Session::flash('alert-class', 'alert-success');
+
         return redirect('admin/categories');
     }
 }

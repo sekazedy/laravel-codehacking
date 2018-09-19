@@ -1,6 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
+	@if (Session::has('message'))
+		<div class="alert {{ session('alert-class', 'alert-info') }} alert-dismissible" role="alert">
+			{{ session('message') }}
+		</div>
+	@endif
+
 	<h1>Categories</h1>
 
 	<div class="row">
