@@ -19,7 +19,7 @@
 				<th>Photo</th>
 				<th>Created At</th>
 				<th>Updated At</th>
-				<th>&nbsp;</th>
+				<th class="button_column">&nbsp;</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -40,7 +40,7 @@
 						</td>
 						<td>{{ $post->created_at->diffForHumans() }}</td>
 						<td>{{ $post->updated_at->diffForHumans() }}</td>
-						<td style="text-align: center;">
+						<td class="button_column">
 							{!! Form::open(['method' => 'DELETE', 'action' => ['AdminPostsController@destroy', $post->id]]) !!}
 								<a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-xs btn-warning">Edit</a>
 								{!! Form::submit('Delete', ['class' => 'btn btn-xs btn-danger']) !!}

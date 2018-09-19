@@ -20,7 +20,7 @@
 				<th>Created</th>
 				<th>Updated</th>
 				<th>Status</th>
-				<th>&nbsp;</th>
+				<th class="button_column">&nbsp;</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -41,7 +41,7 @@
 						<td>{{$user->created_at->format('jS \o\f F Y, H:i:s')}}</td>
 						<td>{{$user->updated_at->format('jS \o\f F Y, H:i:s')}}</td>
 						<td>{{$user->is_active ? "Active" : "Inactive"}}</td>
-						<td style="text-align: center;">
+						<td class="button_column">
 							{!! Form::open(['method' => 'DELETE', 'action' => ['AdminUsersController@destroy', $user->id]]) !!}
 								<a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-xs btn-warning">Edit</a>
 								{!! Form::submit('Delete', ['class' => 'btn btn-xs btn-danger']) !!}
