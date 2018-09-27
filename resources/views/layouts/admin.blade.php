@@ -146,6 +146,9 @@
                                 <a href="{{ route('admin.posts.create') }}">Create Post</a>
                             </li>
 
+                            <li>
+                                <a href="{{ route('admin.comments.index') }}">All Comments</a>
+                            </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
@@ -157,11 +160,6 @@
                             <li>
                                 <a href="{{ route('admin.categories.index') }}">All Categories</a>
                             </li>
-
-                            {{-- <li>
-                                <a href="{{ route('admin.categories.create') }}">Create Category</a>
-                            </li> --}}
-
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
