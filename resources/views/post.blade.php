@@ -29,16 +29,27 @@
 	<hr>
 
 	<!-- Blog Comments -->
+	@if (Session::has('comment_message'))
+		<div class="alert {{ session('alert-class', 'alert-info') }} alert-dismissible" role="alert">
+			{{ session('comment_message') }}
+		</div>
+	@endif
 
 	<!-- Comments Form -->
 	<div class="well">
 		<h4>Leave a Comment:</h4>
-		<form role="form">
-			<div class="form-group">
-				<textarea class="form-control" rows="3"></textarea>
+
+		{!! Form::open(['method' => 'POST', 'action' => 'PostCommentsController@store']) !!}
+			{!! Form::hidden('post_id', $post->id) !!}
+
+			<div class='form-group'>
+				{!! Form::textarea('body', null, ['class' => 'form-control']) !!}
 			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
-		</form>
+			<div class='form-group'>
+				{!! Form::submit('Submit Comment', ['class' => 'btn btn-primary']) !!}
+			</div>
+		{!! Form::close() !!}
+
 	</div>
 
 	<hr>

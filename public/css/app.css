@@ -3,9 +3,13 @@
 }
 
 .button_column {
-  text-align: center;
+  text-align: right;
   width: 1%;
   white-space: nowrap;
+}
+
+.button_column form {
+  display: inline-block;
 }
 
 /*# sourceMappingURL=app.css.map */
