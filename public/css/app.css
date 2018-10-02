@@ -12,4 +12,12 @@
   display: inline-block;
 }
 
+.media {
+  margin-top: 20px;
+}
+
+.comment_reply_form {
+  display: none;
+}
+
 /*# sourceMappingURL=app.css.map */

@@ -27,7 +27,7 @@
 				@foreach ($posts as $post)
 					<tr>
 						<td>{{ $post->id }}</td>
-						<td>{{ $post->title }}</td>
+						<td><a href="{{ route('home.post', $post->id) }}">{{ $post->title }}</a></td>
 						<td>{{ str_limit($post->body, 20) }}</td>
 						<td>{{ $post->user->name }}</td>
 						<td>{{ $post->category ? $post->category->name : "No category" }}</td>
@@ -44,6 +44,7 @@
 							{!! Form::open(['method' => 'DELETE', 'action' => ['AdminPostsController@destroy', $post->id]]) !!}
 								<a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-xs btn-warning">Edit</a>
 								{!! Form::submit('Delete', ['class' => 'btn btn-xs btn-danger']) !!}
+								<a href="{{ route('admin.comments.show', $post->id) }}" class="btn btn-xs btn-default">Show comments</a>
 							{!! Form::close() !!}
 						</td>
 					</tr>

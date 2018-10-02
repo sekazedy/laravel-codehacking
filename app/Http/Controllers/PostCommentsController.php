@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Comment;
+use App\Post;
 use Auth;
 class PostCommentsController extends Controller
 {
@@ -63,7 +64,8 @@ class PostCommentsController extends Controller
      */
     public function show($id)
     {
-        //
+        $comments = Post::findOrFail($id)->comments;
+        return view('admin.comments.show', compact('comments'));
     }
 
     /**
