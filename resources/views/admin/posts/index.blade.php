@@ -27,7 +27,7 @@
 				@foreach ($posts as $post)
 					<tr>
 						<td>{{ $post->id }}</td>
-						<td><a href="{{ route('home.post', $post->id) }}">{{ $post->title }}</a></td>
+						<td><a href="{{ route('home.post', $post->slug) }}">{{ $post->title }}</a></td>
 						<td>{{ str_limit($post->body, 20) }}</td>
 						<td>{{ $post->user->name }}</td>
 						<td>{{ $post->category ? $post->category->name : "No category" }}</td>

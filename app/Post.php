@@ -2,11 +2,21 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Post extends Model implements SluggableInterface
 {
-    protected $fillable = ['title', 'body', 'user_id', 'category_id', 'photo_id'];
+    use SluggableTrait;
+
+    protected $sluggable = [
+        "build_from"    => "title",
+        "save_to"       => "slug",
+        "on_update"     => true
+    ];
+
+    protected $fillable = ['title', 'body', 'user_id', 'category_id', 'photo_id', 'slug'];
 
     public function user() {
         return $this->belongsTo('App\User');
