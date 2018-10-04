@@ -2,6 +2,8 @@
 
 return [
 
+    'name' => 'Codehacking',
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -149,6 +151,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
+        Illuminate\Notifications\NotificationServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -205,6 +208,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Notification' => Illuminate\Support\Facades\Notification::class,
     ],
 
 ];
