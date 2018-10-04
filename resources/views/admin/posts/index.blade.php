@@ -33,7 +33,7 @@
 						<td>{{ $post->category ? $post->category->name : "No category" }}</td>
 						<td>
 							@if ($post->photo_id)
-								<img src="{{ $post->photo->file_path }}" height="100">
+								<img src="{{ $post->photo->file_path }}" style="max-width: 100px; max-height: 100px;">
 							@else
 								No photo
 							@endif
@@ -52,4 +52,10 @@
 			@endif
 		</tbody>
 	</table>
+
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3" style="text-align: center;">
+			{{ $posts->render() }}
+		</div>
+	</div>
 @endsection
