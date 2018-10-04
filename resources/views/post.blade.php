@@ -63,6 +63,7 @@
 				<a class="pull-left" href="#">
 					@if (!empty($comment->photo))
 						<img width="64" class="media-object" src="{{ $comment->photo }}" alt="">
+						<!-- <img width="64" class="media-object" src="{{ Auth::user()->gravatar }}" alt=""> -->
 					@else
 						<img class="media-object" src="http://placehold.it/64x64" alt="">
 					@endif

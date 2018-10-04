@@ -64,7 +64,9 @@ class PostCommentsController extends Controller
      */
     public function show($id)
     {
-        $comments = Post::findOrFail($id)->comments;
+        // $comments = Post::findOrFail($id)->comments;
+        // $comments = Post::findBySlugOrFail($slug)->comments;
+        $comments = Post::where('slug', $slug)->firstOrFail()->comments;  // Because Laravel 5.2 and PHP 7.2.* have compatibility problems.
         return view('admin.comments.show', compact('comments'));
     }
 
