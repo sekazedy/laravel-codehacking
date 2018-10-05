@@ -40,6 +40,10 @@ class AdminCategoriesController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required|unique:categories'
+        ]);
+
         Category::create($request->all());
 
         Session::flash('message', 'The category has been created!');
