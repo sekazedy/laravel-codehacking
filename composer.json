@@ -8,7 +8,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.3.*",
         "laravelcollective/html": "5.3.*",
-        "cviebrock/eloquent-sluggable": "3.1.4"
+        "cviebrock/eloquent-sluggable": "4.1.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
