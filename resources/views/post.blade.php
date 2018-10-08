@@ -19,12 +19,16 @@
 	<hr>
 
 	<!-- Preview Image -->
-	<img class="img-responsive" src="{{ $post->photo->file_path }}" alt="">
+	@if ($post->photo)
+		<img class="img-responsive" src="{{ $post->photo->file_path }}" alt="">
+	@else
+		<img class="media-object" src="{{ $post->photoPlaceholder() }}" alt="">
+	@endif
 
 	<hr>
 
 	<!-- Post Content -->
-	<p class="lead">{{ $post->body }}</p>
+	<p class="lead">{!! $post->body !!}</p>
 
 	<hr>
 

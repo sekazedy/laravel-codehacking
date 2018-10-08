@@ -126,7 +126,8 @@ class AdminPostsController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        unlink(public_path() . $post->photo->file_path);
+        if (isset($post->photo))
+            unlink(public_path() . $post->photo->file_path);
         $post->delete();
 
         Session::flash('message', 'The post has been deleted!');
@@ -136,8 +137,8 @@ class AdminPostsController extends Controller
     }
 
     public function post($slug) {
-        // $post = Post::findBySlugOrFail($slug);
-        $post = Post::where('slug', $slug)->firstOrFail();  // Because Laravel 5.2 and PHP 7.2.* have compatibility problems.
+        $post = Post::findBySlugOrFail($slug);
+        // $post = Post::where('slug', $slug)->firstOrFail();  // Because Laravel 5.2 and PHP 7.2.* have compatibility problems.
         $comments = $post->comments()->whereIsActive(1)->get();
 
         return view('post', compact('post', 'comments'));

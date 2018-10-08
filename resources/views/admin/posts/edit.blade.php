@@ -1,13 +1,15 @@
 @extends('layouts.admin')
 
 @section('content')
+	@include('includes.tinyeditor')
+
 	<h1>Edit Post</h1>
 	<div class="row">
 		<div class="col-sm-3">
 			@if (isset($post->photo))
 				<img src="{{ $post->photo->file_path }}" alt="Post photo" class="img-responsive img-rounded">
 			@else
-				<h2>No photo</h2>
+				<img src="{{ $post->photoPlaceholder() }}" alt="Post photo" class="img-responsive img-rounded">
 			@endif
 		</div>
 		<div class="col-sm-9">
