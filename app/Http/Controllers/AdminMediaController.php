@@ -40,4 +40,16 @@ class AdminMediaController extends Controller
 
         return redirect('admin/media');
     }
+
+    public function deleteChecked(Request $request) {
+        $medias_checked = array();
+        if (!empty($request->all()["medias_checked"]))
+            $medias_checked = explode(", ", $request->all()["medias_checked"]);
+
+        $photos = Photo::findOrFail($medias_checked);   // delete multiple records
+        foreach($photos as $photo)
+            $photo->delete();
+
+        return redirect()->back();
+    }
 }

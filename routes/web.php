@@ -57,6 +57,7 @@ Route::group(['middleware' => 'admin'], function() {
         'update' => 'admin.categories.update',
         'show' => 'admin.categories.show',
     ]]);
+
     Route::get('admin/media', [
         'as'    => 'admin.media.index',
         'uses'  => 'AdminMediaController@index'
@@ -72,6 +73,10 @@ Route::group(['middleware' => 'admin'], function() {
     Route::delete('admin/media/destroy/{id}', [
         'as'    => 'admin.media.destroy',
         'uses'  => 'AdminMediaController@destroy'
+    ]);
+    Route::delete('admin/media/delete_checked', [
+        'as'    => 'admin.media.delete_checked',
+        'uses'  => 'AdminMediaController@deleteChecked'
     ]);
 
     Route::resource('comments', 'PostCommentsController', ['names' => [
