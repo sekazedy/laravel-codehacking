@@ -57,5 +57,11 @@
 				@endforeach
 			</tbody>
 		</table>
+
+		<div class="row">
+			<div class="col-sm-6 col-sm-offset-3" style="text-align: center;">
+				{{ $comments->render() }}
+			</div>
+		</div>
 	@endif
 @endsection

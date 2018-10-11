@@ -18,7 +18,7 @@ class PostCommentsController extends Controller
      */
     public function index()
     {
-        $comments = Comment::all();
+        $comments = Comment::paginate(5);
         return view('admin.comments.index', compact('comments'));
     }
 
@@ -45,7 +45,7 @@ class PostCommentsController extends Controller
             'post_id'   => $request->post_id,
             'author'    => $user->name,
             'email'     => $user->email,
-            'photo'     => $user->photo->file_path,
+            'photo'     => ($user->photo ? $user->photo->file_path : ""),
             'body'      => $request->body,
             'is_active' => 1
         ];
@@ -65,8 +65,8 @@ class PostCommentsController extends Controller
     public function show($id)
     {
         // $comments = Post::findOrFail($id)->comments;
-        // $comments = Post::findBySlugOrFail($slug)->comments;
-        $comments = Post::where('slug', $slug)->firstOrFail()->comments;  // Because Laravel 5.2 and PHP 7.2.* have compatibility problems.
+        $comments = Post::findBySlugOrFail($slug)->comments;
+        // $comments = Post::where('slug', $slug)->firstOrFail()->comments;  // Because Laravel 5.2 and PHP 7.2.* have compatibility problems.
         return view('admin.comments.show', compact('comments'));
     }
 
