@@ -6,9 +6,9 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.4.*",
-        "laravelcollective/html": "5.4.*",
-        "cviebrock/eloquent-sluggable": "4.2.*",
+        "laravel/framework": "5.5.44",
+        "laravelcollective/html": "5.5.*",
+        "cviebrock/eloquent-sluggable": "4.4.*",
         "unisharp/laravel-filemanager": "^1.9",
         "intervention/image": "^2.4",
         "doctrine/inflector": "1.1.0",
@@ -17,9 +17,10 @@
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.7",
+        "phpunit/phpunit": "~6.0",
         "symfony/css-selector": "3.1.*",
-        "symfony/dom-crawler": "3.1.*"
+        "symfony/dom-crawler": "3.1.*",
+        "filp/whoops": "~2.0"
     },
     "autoload": {
         "classmap": [
@@ -48,9 +49,14 @@
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover"
         ]
     },
     "config": {
-        "preferred-install": "dist"
+        "preferred-install": "dist",
+        "optimize-autoloader": true
     }
 }

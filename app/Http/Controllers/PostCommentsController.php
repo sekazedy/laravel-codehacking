@@ -62,7 +62,7 @@ class PostCommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
         // $comments = Post::findOrFail($id)->comments;
         $comments = Post::findBySlugOrFail($slug)->comments;

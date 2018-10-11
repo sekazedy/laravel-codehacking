@@ -23,7 +23,7 @@
 				@foreach ($comments as $comment)
 					<tr>
 						<td>{{ $comment->id }}</td>
-						<td><a href="{{ route('home.post', $comment->post_id) }}">View post #{{ $comment->post_id }}</a></td>
+						<td><a href="{{ route('home.post', $comment->post->slug) }}">View post #{{ $comment->post_id }}</a></td>
 						<td>{{ $comment->is_active }}</td>
 						<td>{{ $comment->author }}</td>
 						<td>{{ $comment->email }}</td>

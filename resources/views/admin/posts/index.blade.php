@@ -44,7 +44,7 @@
 							{!! Form::open(['method' => 'DELETE', 'action' => ['AdminPostsController@destroy', $post->id]]) !!}
 								<a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-xs btn-warning">Edit</a>
 								{!! Form::submit('Delete', ['class' => 'btn btn-xs btn-danger']) !!}
-								<a href="{{ route('admin.comments.show', $post->id) }}" class="btn btn-xs btn-default">Show comments</a>
+								<a href="{{ route('admin.comments.show', $post->slug) }}" class="btn btn-xs btn-default">Show comments</a>
 							{!! Form::close() !!}
 						</td>
 					</tr>
