@@ -13,7 +13,6 @@
 			<tr>
 				<th>Id</th>
 				<th>Title</th>
-				<th>Body</th>
 				<th>User</th>
 				<th>Category</th>
 				<th>Photo</th>
@@ -28,7 +27,6 @@
 					<tr>
 						<td>{{ $post->id }}</td>
 						<td><a href="{{ route('home.post', $post->slug) }}">{{ $post->title }}</a></td>
-						<td>{{ str_limit($post->body, 20) }}</td>
 						<td>{{ $post->user->name }}</td>
 						<td>{{ $post->category ? $post->category->name : "No category" }}</td>
 						<td>

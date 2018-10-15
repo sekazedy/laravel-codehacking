@@ -135,12 +135,4 @@ class AdminPostsController extends Controller
 
         return redirect('admin/posts');
     }
-
-    public function post($slug) {
-        $post = Post::findBySlugOrFail($slug);
-        // $post = Post::where('slug', $slug)->firstOrFail();  // Because Laravel 5.2 and PHP 7.2.* have compatibility problems.
-        $comments = $post->comments()->whereIsActive(1)->get();
-
-        return view('post', compact('post', 'comments'));
-    }
 }
